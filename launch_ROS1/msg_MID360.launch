@@ -3,7 +3,7 @@
 	<!--user configure parameters for ros start-->
 	<arg name="lvx_file_path" default="livox_test.lvx"/>
 	<arg name="bd_list" default="100000000000000"/>
-	<arg name="xfer_format" default="1"/>
+	<arg name="xfer_format" default="2"/>
 	<arg name="multi_topic" default="0"/>
 	<arg name="data_src" default="0"/>
 	<arg name="publish_freq" default="10.0"/>
@@ -36,5 +36,10 @@
     	<node pkg="rosbag" type="record" name="record" output="screen"
           		args="-a"/>
     </group>
+
+	<node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+        <remap from="cloud_in" to="/livox/lidar"/>
+        <remap from="scan" to="/scan"/>
+	</node>
 
 </launch>
