@@ -179,6 +179,9 @@ if($ENV{ROS_VERSION} STREQUAL "1")
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch_ROS1
   )
 
+  install(DIRECTORY config/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
+  )
   #---------------------------------------------------------------------------------------
   # end of CMakeList.txt
   #---------------------------------------------------------------------------------------
